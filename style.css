@@ -1,0 +1,134 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & FONTS (ກຳນົດຟອນຕ໌ ແລະ ຮູບແບບທົ່ວໄປ)
+   ========================================================================== */
+/* ນຳເຂົ້າຟອນຕ໌ Noto Sans Lao ຈາກ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100..900&display=swap');
+
+:root {
+    --primary-color: #0d6efd;    /* ສີຫຼັກ (ນ້ຳເງິນ Bootstrap) */
+    --secondary-color: #6c757d;  /* ສີຮອງ (ເທົາ) */
+    --success-color: #198754;    /* ສີຂຽວຄວາມສຳເລັດ */
+    --bg-light: #f8f9fa;         /* ສີພື້ນຫຼັງອ່ອນໆ */
+    --text-dark: #212529;        /* ສີໂຕໜັງສືເຂັ້ມ */
+}
+
+/* ກຳນົດໃຫ້ໜ້າເວັບເຕັມຈໍ ແລະ ບໍ່ມີ scrollbar ແນວນອນ */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ກຳນົດຂະໜາດ ແລະ ຮູບແບບຂອງ Sidebar */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* ກຳນົດພື້ນທີ່ເນື້ອໃນໃຫ້ຫຍັບອອກມາທາງຂວາ ເພື່ອບໍ່ໃຫ້ Sidebar ບັງ */
+.main-wrapper {
+    margin-left: 260px; /* ເທົ່າກັບຄວາມກວ້າງຂອງ Sidebar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f6f9;
+}
+
+.content-body {
+    padding: 30px;
+    flex: 1;
+}
+
+/* ຮອງຮັບໜ້າຈໍມືຖື (Responsive) */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -260px; /* ຊ່ອນ Sidebar ໃນມືຖື */
+        transition: all 0.3s;
+    }
+    .sidebar.active {
+        margin-left: 0; /* ສະແດງເມື່ອກົດປຸ່ມ */
+    }
+    .main-wrapper {
+        margin-left: 0; /* ເນື້ອໃນເຕັມຈໍໃນມືຖື */
+    }
+}
+
+body {
+    font-family: "Noto Sans Lao", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY (ປັບແຕ່ງຂະໜາດ ແລະ ຄວາມໜາຂອງໂຕໜັງສື)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-weight: 400;
+    color: #4a5568;
+}
+
+/* ==========================================================================
+   3. CUSTOM CLASSES (ຮູບແບບເພີ່ມເຕີມທີ່ Bootstrap ບໍ່ມີ)
+   ========================================================================== */
+
+/* ກ່ອງເນື້ອຫາ (Card Custom) */
+.custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ເອັບເຟັກຕອນເອົາມືຖືໄປຈີ້ (Hover Effect) */
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ປຸ່ມກົດແບບມີສີສັນນຸ້ມນວນ */
+.btn-custom {
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+}
+
+/* ແຖບເມນູດ້ານເທິງ (Navbar) */
+.custom-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+
+.custom-navbar .nav-link {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* ສ່ວນທ້າຍຂອງເວັບ (Footer) */
+.custom-footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 30px 0;
+    margin-top: 50px;
+    font-size: 14px;
+}
